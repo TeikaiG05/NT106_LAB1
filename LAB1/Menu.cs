@@ -15,11 +15,24 @@ namespace LAB1
         public Menu()
         {
             InitializeComponent();
+            this.FormClosed += Menu_FormClosed;
+        }
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bai1_Click(object sender, EventArgs e)
+        {
+            Bai1 bai1 = new Bai1();
+            this.Hide();
+            bai1.ShowDialog();
+            this.Show();
         }
     }
 }
