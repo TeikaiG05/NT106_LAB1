@@ -34,5 +34,13 @@ namespace LAB1
             bai1.ShowDialog();
             this.Show();
         }
+
+        private void bai2_Click(object sender, EventArgs e)
+        {
+            Bai2 bai2 = new Bai2();
+            this.Hide();
+            bai2.ShowDialog();
+            this.Show();
+        }
     }
 }
