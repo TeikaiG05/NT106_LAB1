@@ -121,6 +121,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Bai3_1";
             this.Text = "Bài 3.1 – Đọc số nâng cao";
+            this.Load += new System.EventHandler(this.Bai3_1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

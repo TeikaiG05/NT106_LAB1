@@ -30,12 +30,12 @@
         {
             this.bai7 = new System.Windows.Forms.Button();
             this.bai6 = new System.Windows.Forms.Button();
-            this.bai5 = new System.Windows.Forms.Button();
+            this.bai4 = new System.Windows.Forms.Button();
             this.bai3 = new System.Windows.Forms.Button();
             this.bai2 = new System.Windows.Forms.Button();
             this.bai1 = new System.Windows.Forms.Button();
             this.bai8 = new System.Windows.Forms.Button();
-            this.bai4 = new System.Windows.Forms.Button();
+            this.bai3_1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bai7
@@ -58,15 +58,16 @@
             this.bai6.Text = "Bài 6";
             this.bai6.UseVisualStyleBackColor = true;
             // 
-            // bai5
+            // bai4
             // 
-            this.bai5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bai5.Location = new System.Drawing.Point(79, 262);
-            this.bai5.Name = "bai5";
-            this.bai5.Size = new System.Drawing.Size(127, 51);
-            this.bai5.TabIndex = 12;
-            this.bai5.Text = "Bài 5";
-            this.bai5.UseVisualStyleBackColor = true;
+            this.bai4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bai4.Location = new System.Drawing.Point(79, 262);
+            this.bai4.Name = "bai4";
+            this.bai4.Size = new System.Drawing.Size(127, 51);
+            this.bai4.TabIndex = 12;
+            this.bai4.Text = "Bài 4";
+            this.bai4.UseVisualStyleBackColor = true;
+            this.bai4.Click += new System.EventHandler(this.bai4_Click);
             // 
             // bai3
             // 
@@ -111,16 +112,16 @@
             this.bai8.Text = "Bài 8";
             this.bai8.UseVisualStyleBackColor = true;
             // 
-            // bai4
+            // bai3_1
             // 
-            this.bai4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bai4.Location = new System.Drawing.Point(584, 158);
-            this.bai4.Name = "bai4";
-            this.bai4.Size = new System.Drawing.Size(127, 51);
-            this.bai4.TabIndex = 11;
-            this.bai4.Text = "Bài 3.1";
-            this.bai4.UseVisualStyleBackColor = true;
-            this.bai4.Click += new System.EventHandler(this.bai3_1_Click);
+            this.bai3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bai3_1.Location = new System.Drawing.Point(584, 158);
+            this.bai3_1.Name = "bai3_1";
+            this.bai3_1.Size = new System.Drawing.Size(127, 51);
+            this.bai3_1.TabIndex = 11;
+            this.bai3_1.Text = "Bài 3.1";
+            this.bai3_1.UseVisualStyleBackColor = true;
+            this.bai3_1.Click += new System.EventHandler(this.bai3_1_Click);
             // 
             // Menu
             // 
@@ -129,12 +130,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bai7);
             this.Controls.Add(this.bai6);
-            this.Controls.Add(this.bai5);
+            this.Controls.Add(this.bai4);
             this.Controls.Add(this.bai3);
             this.Controls.Add(this.bai2);
             this.Controls.Add(this.bai1);
             this.Controls.Add(this.bai8);
-            this.Controls.Add(this.bai4);
+            this.Controls.Add(this.bai3_1);
             this.Name = "Menu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -146,12 +147,12 @@
 
         private System.Windows.Forms.Button bai7;
         private System.Windows.Forms.Button bai6;
-        private System.Windows.Forms.Button bai5;
+        private System.Windows.Forms.Button bai4;
         private System.Windows.Forms.Button bai3;
         private System.Windows.Forms.Button bai2;
         private System.Windows.Forms.Button bai1;
         private System.Windows.Forms.Button bai8;
-        private System.Windows.Forms.Button bai4;
+        private System.Windows.Forms.Button bai3_1;
     }
 }
 

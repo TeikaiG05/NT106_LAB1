@@ -111,5 +111,10 @@ namespace LAB1
         {
             this.Close();
         }
+
+        private void Bai3_1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
