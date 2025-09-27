@@ -120,6 +120,7 @@
             this.bai4.TabIndex = 11;
             this.bai4.Text = "Bài 3.1";
             this.bai4.UseVisualStyleBackColor = true;
+            this.bai4.Click += new System.EventHandler(this.bai3_1_Click);
             // 
             // Menu
             // 
