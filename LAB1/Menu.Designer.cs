@@ -34,7 +34,7 @@
             this.bai3 = new System.Windows.Forms.Button();
             this.bai2 = new System.Windows.Forms.Button();
             this.bai1 = new System.Windows.Forms.Button();
-            this.bai8 = new System.Windows.Forms.Button();
+            this.bai7 = new System.Windows.Forms.Button();
             this.bai3_1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -104,15 +104,15 @@
             this.bai1.UseVisualStyleBackColor = true;
             this.bai1.Click += new System.EventHandler(this.bai1_Click);
             // 
-            // bai8
+            // bai7
             // 
-            this.bai8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bai8.Location = new System.Drawing.Point(584, 262);
-            this.bai8.Name = "bai8";
-            this.bai8.Size = new System.Drawing.Size(127, 51);
-            this.bai8.TabIndex = 15;
-            this.bai8.Text = "Bài 8";
-            this.bai8.UseVisualStyleBackColor = true;
+            this.bai7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bai7.Location = new System.Drawing.Point(584, 262);
+            this.bai7.Name = "bai7";
+            this.bai7.Size = new System.Drawing.Size(127, 51);
+            this.bai7.TabIndex = 15;
+            this.bai7.Text = "Bài 7";
+            this.bai7.UseVisualStyleBackColor = true;
             // 
             // bai3_1
             // 
@@ -136,7 +136,7 @@
             this.Controls.Add(this.bai3);
             this.Controls.Add(this.bai2);
             this.Controls.Add(this.bai1);
-            this.Controls.Add(this.bai8);
+            this.Controls.Add(this.bai7);
             this.Controls.Add(this.bai3_1);
             this.Name = "Menu";
             this.Text = "Menu";
@@ -153,7 +153,7 @@
         private System.Windows.Forms.Button bai3;
         private System.Windows.Forms.Button bai2;
         private System.Windows.Forms.Button bai1;
-        private System.Windows.Forms.Button bai8;
+        private System.Windows.Forms.Button bai7;
         private System.Windows.Forms.Button bai3_1;
     }
 }
