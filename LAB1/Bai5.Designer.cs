@@ -119,6 +119,7 @@
             // cKetqua
             // 
             this.cKetqua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cKetqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.cKetqua.Location = new System.Drawing.Point(67, 204);
             this.cKetqua.Multiline = true;
             this.cKetqua.Name = "cKetqua";

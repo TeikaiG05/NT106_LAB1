@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bai7 = new System.Windows.Forms.Button();
+            this.bai6 = new System.Windows.Forms.Button();
             this.bai5 = new System.Windows.Forms.Button();
             this.bai4 = new System.Windows.Forms.Button();
             this.bai3 = new System.Windows.Forms.Button();
@@ -38,15 +38,16 @@
             this.bai3_1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // bai7
+            // bai6
             // 
-            this.bai7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bai7.Location = new System.Drawing.Point(413, 262);
-            this.bai7.Name = "bai7";
-            this.bai7.Size = new System.Drawing.Size(127, 51);
-            this.bai7.TabIndex = 14;
-            this.bai7.Text = "Bài 7";
-            this.bai7.UseVisualStyleBackColor = true;
+            this.bai6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bai6.Location = new System.Drawing.Point(413, 262);
+            this.bai6.Name = "bai6";
+            this.bai6.Size = new System.Drawing.Size(127, 51);
+            this.bai6.TabIndex = 14;
+            this.bai6.Text = "Bài 6";
+            this.bai6.UseVisualStyleBackColor = true;
+            this.bai6.Click += new System.EventHandler(this.bai6_Click);
             // 
             // bai5
             // 
@@ -129,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bai7);
+            this.Controls.Add(this.bai6);
             this.Controls.Add(this.bai5);
             this.Controls.Add(this.bai4);
             this.Controls.Add(this.bai3);
@@ -146,7 +147,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bai7;
+        private System.Windows.Forms.Button bai6;
         private System.Windows.Forms.Button bai5;
         private System.Windows.Forms.Button bai4;
         private System.Windows.Forms.Button bai3;
