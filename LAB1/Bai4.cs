@@ -16,9 +16,9 @@ namespace LAB1
         {
             InitializeComponent();
         }
-
-        Dictionary<string, (int GiaChuan, List<int> PhongChieu)> phimDict =
-            new Dictionary<string, (int, List<int>)>()
+        private List<(int Room, string Seat)> veDaChon = new List<(int, string)>();
+        private HashSet<(int Room, string Seat)> gheDaBan = new HashSet<(int Room, string Seat)>();
+        Dictionary<string, (int GiaChuan, List<int> PhongChieu)> phimDict = new Dictionary<string, (int, List<int>)>()
         {
             {"Đào, phở và piano", (45000, new List<int>{1,2,3})},
             {"Mai", (100000, new List<int>{2,3})},
@@ -36,7 +36,11 @@ namespace LAB1
 
         private void cListphim_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            cPhongchieu.Items.Clear();
+            if (cListPhim.SelectedItem == null) return;
+            string phim = cListPhim.SelectedItem.ToString();
+            foreach (int p in phimDict[phim].PhongChieu) cPhongchieu.Items.Add(p);
+            if (cPhongchieu.Items.Count > 0) cPhongchieu.SelectedIndex = 0;
         }
         private void Bai4_Load(object sender, EventArgs e)
         {
@@ -46,49 +50,156 @@ namespace LAB1
                 cListPhim.Items.Add(tenPhim);
             }
         }
- 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        } 
         private void button_checklist(object sender, EventArgs e)
         {
+            if (cListPhim.SelectedItem == null)
+            {
+                MessageBox.Show("Chưa chọn phim!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cPhongchieu.SelectedItem == null)
+            {
+                MessageBox.Show("Chưa chọn phòng chiếu!", "Cảnh báo",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Button btn = sender as Button;
             string ghe = btn.Text;
-            string phong = ghe.Substring(0, 1); // phòng A/B/C
+            int phongChieu = Convert.ToInt32(cPhongchieu.SelectedItem);
 
             if (btn.BackColor == Color.LightGreen)
             {
-                MessageBox.Show("Vé đã được chọn!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ghế đã được chọn!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            var distinctRooms = veDaChon.Select(v => v.Room).Distinct().ToList();
+            if (!distinctRooms.Contains(phongChieu)) distinctRooms.Add(phongChieu);
+
+            if (distinctRooms.Count > 1 && veDaChon.Count + 1 > 2)
             {
-                HashSet<string> phongDangChon = new HashSet<string>(
-                    this.Controls.OfType<Button>().Where(b => b.BackColor == Color.LightGreen).Select(b => b.Text.Substring(0, 1))
-                );
-
-                phongDangChon.Add(phong);
-
-                if (phongDangChon.Count > 2)
-                {
-                    MessageBox.Show("Không thể chọn nhiều hơn 2 vé ở 2 phòng chiếu khác nhau!","Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                btn.BackColor = Color.LightGreen;
-                for (int i = 0; i < cCheckList.Items.Count; i++) 
-                { if (cCheckList.Items[i].ToString() == ghe) 
-                    { 
-                        bool Check = cCheckList.GetItemChecked(i); 
-                        cCheckList.SetItemChecked(i, !Check); 
-                        break; 
-                    } 
-                }
+                MessageBox.Show("Không thể chọn hơn 2 vé ở 2 phòng chiếu khác nhau!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+
+            btn.BackColor = Color.LightGreen;
+            veDaChon.Add((phongChieu, ghe));
+
+            for (int i = 0; i < cCheckList.Items.Count; i++)
+                if (cCheckList.Items[i].ToString() == ghe)
+                {
+                    cCheckList.SetItemChecked(i, true);
+                    break;
+                }
 
         }
-        
+        private void RefreshSeats()
+        {
+            if (cPhongchieu.SelectedItem == null) return;
+            int phong = Convert.ToInt32(cPhongchieu.SelectedItem);
+
+            foreach (var btn in this.Controls.OfType<Button>())
+            {
+                string ghe = btn.Text;
+                if (gheDaBan.Contains((phong, ghe)))
+                {
+                    btn.BackColor = Color.Gray;
+                    btn.Enabled = false;
+                }
+                else
+                {
+                    btn.BackColor = SystemColors.Control;
+                    btn.Enabled = true;
+                }
+            }
+        }
+        private void cThanhtoan_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(cHoten.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập họ tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cListPhim.SelectedItem == null)
+            {
+                MessageBox.Show("Bạn chưa chọn phim!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string phim = cListPhim.SelectedItem.ToString();
+            int giaChuan = phimDict[phim].GiaChuan;
+
+            var gheHopLe = veDaChon
+                           .Where(v => !gheDaBan.Contains(v)) 
+                           .ToList();
+
+            if (gheHopLe.Count == 0)
+            {
+                MessageBox.Show("Tất cả ghế bạn chọn đã bán hoặc chưa chọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int tongTien = 0;
+            StringBuilder bill = new StringBuilder();
+            bill.AppendLine("HÓA ĐƠN THANH TOÁN");
+            bill.AppendLine($"KHÁCH HÀNG : {cHoten.Text}");
+            bill.AppendLine($"PHIM: {phim}");
+            bill.AppendLine("----------------------------");
+
+            foreach (var ghe in gheHopLe)
+            {
+                string loai = gheDict.ContainsKey(ghe.Seat) ? gheDict[ghe.Seat] : "thuong";
+                int gia;
+                switch (loai)
+                {
+                    case "vot":
+                        gia = giaChuan / 4;
+                        break;
+                    case "vip":
+                        gia = giaChuan * 2;
+                        break;
+                    default:
+                        gia = giaChuan;
+                        break;
+                }
+
+                tongTien += gia;
+                bill.AppendLine($"Phòng {ghe.Room} - Ghế {ghe.Seat} ({loai}) : {gia:N0} VND");
+            }
+
+            bill.AppendLine("----------------------------");
+            bill.AppendLine($"TỔNG CỘNG : {tongTien:N0} VND");
+
+            MessageBox.Show(bill.ToString(), "Thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            foreach (var ghe in gheHopLe)
+            {
+                gheDaBan.Add(ghe); 
+            }
+
+            RefreshSeats();
+            veDaChon.Clear();
+        }
+        private void cReset_Click(object sender, EventArgs e)
+        {
+            veDaChon.Clear();
+            foreach (var item in this.Controls)
+                if (item is Button btn && btn.Text != "Reset")
+                    btn.BackColor = SystemColors.Control;
+
+            for (int i = 0; i < cCheckList.Items.Count; i++)
+                cCheckList.SetItemChecked(i, false);
+        }
+        private void cHoten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void cCheckList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -118,23 +229,6 @@ namespace LAB1
         {
             button_checklist(sender, e);
         }
-
-        private void cReset_Click(object sender, EventArgs e)
-        {
-            foreach (var item in this.Controls)
-            {
-                if (item is Button btn && btn.Text != "Reset")
-                {
-                    btn.BackColor = SystemColors.Control;
-                }
-            }
-            for (int i = 0; i < cCheckList.Items.Count; i++)
-            {
-                cCheckList.SetItemChecked(i, false);
-            }
-        }
-
-
         private void cB1_Click(object sender, EventArgs e)
         {
             button_checklist(sender, e);
@@ -184,67 +278,14 @@ namespace LAB1
         {
             button_checklist(sender, e);
         }
-
-        private void cThanhtoan_Click(object sender, EventArgs e)
-        {
-            
-            int giaChuan = 0;
-            if (cListPhim.SelectedItem != null)
-            {
-                string phim = cListPhim.SelectedItem.ToString();
-                if (phim == "Đào, phở và piano") giaChuan = 45000;
-                else if (phim == "Mai") giaChuan = 100000;
-                else if (phim == "Gặp lại chị bầu") giaChuan = 70000;
-                else if (phim == "Tarot") giaChuan = 90000;
-            }
-            else
-            {
-                MessageBox.Show("Bạn chưa chọn phim!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (cCheckList.CheckedItems.Count == 0)
-            {
-                MessageBox.Show("Bạn chưa chọn ghế nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            int tongTien = 0;
-            StringBuilder bill = new StringBuilder();
-            bill.AppendLine("HÓA ĐƠN THANH TOÁN");
-            bill.AppendLine($"KHÁCH HÀNG: {cHoten.Text}");
-            bill.AppendLine($"Phim: {cListPhim.SelectedItem}");
-            bill.AppendLine("----------------------------");
-
-            foreach (var item in cCheckList.CheckedItems)
-            {
-                string ghe = item.ToString();
-                string loai = gheDict.ContainsKey(ghe) ? gheDict[ghe] : "thuong";
-                int gia = 0;
-
-                switch (loai)
-                {
-                    case "vot": gia = giaChuan / 4; break;
-                    case "thuong": gia = giaChuan; break;
-                    case "vip": gia = giaChuan * 2; break;
-                }
-
-                tongTien += gia;
-                bill.AppendLine($"{ghe} ({loai}) : {gia} VND");
-            }
-
-            bill.AppendLine("----------------------------");
-            bill.AppendLine($"TỔNG CỘNG: {tongTien} VND");
-
-            MessageBox.Show(bill.ToString(), "Thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void cHoten_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cThoat_Click(object sender, EventArgs e)
+        private void cPhongchieu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Close();
+            RefreshSeats();
         }
     }
 }

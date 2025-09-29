@@ -54,6 +54,8 @@
             this.cReset = new System.Windows.Forms.Button();
             this.cThanhtoan = new System.Windows.Forms.Button();
             this.cThoat = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cPhongchieu = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cRoomA
@@ -92,7 +94,7 @@
             this.cListPhim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.cListPhim.ForeColor = System.Drawing.Color.DeepPink;
             this.cListPhim.FormattingEnabled = true;
-            this.cListPhim.Location = new System.Drawing.Point(267, 92);
+            this.cListPhim.Location = new System.Drawing.Point(267, 66);
             this.cListPhim.Name = "cListPhim";
             this.cListPhim.Size = new System.Drawing.Size(173, 24);
             this.cListPhim.TabIndex = 3;
@@ -293,7 +295,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(169, 96);
+            this.label1.Location = new System.Drawing.Point(169, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 21;
@@ -301,7 +303,7 @@
             // 
             // cHoten
             // 
-            this.cHoten.Location = new System.Drawing.Point(267, 44);
+            this.cHoten.Location = new System.Drawing.Point(267, 32);
             this.cHoten.Name = "cHoten";
             this.cHoten.Size = new System.Drawing.Size(173, 20);
             this.cHoten.TabIndex = 22;
@@ -311,7 +313,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(167, 46);
+            this.label4.Location = new System.Drawing.Point(167, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 16);
             this.label4.TabIndex = 23;
@@ -350,11 +352,34 @@
             this.cThoat.UseVisualStyleBackColor = true;
             this.cThoat.Click += new System.EventHandler(this.cThoat_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(148, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Phòng chiếu:";
+            // 
+            // cPhongchieu
+            // 
+            this.cPhongchieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cPhongchieu.ForeColor = System.Drawing.Color.DeepPink;
+            this.cPhongchieu.FormattingEnabled = true;
+            this.cPhongchieu.Location = new System.Drawing.Point(267, 102);
+            this.cPhongchieu.Name = "cPhongchieu";
+            this.cPhongchieu.Size = new System.Drawing.Size(173, 24);
+            this.cPhongchieu.TabIndex = 28;
+            this.cPhongchieu.SelectedIndexChanged += new System.EventHandler(this.cPhongchieu_SelectedIndexChanged);
+            // 
             // Bai4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 450);
+            this.Controls.Add(this.cPhongchieu);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cThoat);
             this.Controls.Add(this.cThanhtoan);
             this.Controls.Add(this.cReset);
@@ -417,5 +442,7 @@
         private System.Windows.Forms.Button cReset;
         private System.Windows.Forms.Button cThanhtoan;
         private System.Windows.Forms.Button cThoat;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cPhongchieu;
     }
 }
