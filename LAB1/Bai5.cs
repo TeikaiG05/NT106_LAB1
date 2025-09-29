@@ -43,19 +43,11 @@ namespace LAB1
             if (cListchucnang.SelectedItem.ToString() == "Bảng cửu chương")
             {
                 cKetqua.Clear();
-                int a = A - B;
-                if (a < 0)
-                {
-                    MessageBox.Show("Vui lòng nhập số thứ hai lớn hơn số thứ nhất");
-                    return;
-                }
-                else
-                {
+                int a = B-A;
                     for (int i=1; i<=10; i++)
                     {
                         cKetqua.AppendText($"{a} x {i} = {a * i}\r\n");
                     }
-                }
             }
             if(cListchucnang.SelectedItem.ToString() == "Tính toán giá trị")
             {
@@ -63,13 +55,20 @@ namespace LAB1
                 
                 long a = A - B;
                 long giaithua = 1;
-                for (long i = 1; i <= a; i++) giaithua *= i;
-                cKetqua.AppendText($"(A - B)! = {giaithua}");
-                
-                int S = 0;
+                if (a < 0)
+                {
+                    cKetqua.AppendText($"(A - B)! không xác định vì {a} là số âm.");
+                }
+                else
+                {
+                    for (long i = 1; i <= a; i++) giaithua *= i;
+                    cKetqua.AppendText($"(A - B)! = {giaithua}");
+                }
+
+                double S = 0;
                 for (int i=1; i<=B; i++)
                 {
-                    S += A * i;
+                    S += Math.Pow(A, i);
                 }
                 cKetqua.AppendText($"\r\nS = A^1 + A^2 + … + A^B  = {S}");
             }

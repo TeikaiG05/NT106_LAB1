@@ -30,31 +30,43 @@ namespace LAB1
 
         private void cMang_TextChanged(object sender, EventArgs e)
         {
-            string[] arr = cMang.Text.Split(',');
-            if (arr.Length < 13 || arr.Length > 13)
+            string[] arr = cMang.Text.Split(new char[] { ',' }).Select(x => x.Trim()).ToArray();
+            if (arr.Length != 13)
             {
                 cKiemtra.Text = "Bạn đã nhập sai format!";
                 return;
             }
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(arr[0].Trim(), @"^[\p{L}\s]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(arr[0], @"^[\p{L}\s]+$"))
             {
                 cKiemtra.Text = "Họ tên chỉ được chứa chữ và khoảng trắng!";
                 return;
             }
 
-            else
+            for (int i = 1; i < arr.Length; i++)
             {
-                cKiemtra.Text = "Bạn đã nhập đúng format!";
-                return;
+                if (!double.TryParse(arr[i], NumberStyles.Any, CultureInfo.InvariantCulture, out double d) || d < 0 || d > 10)
+                {
+                    cKiemtra.Text = $"Sai format: điểm môn {i} không hợp lệ!";
+                    return;
+                }
             }
+            cKiemtra.Text = "Bạn đã nhập đúng format!";
         }
 
         private void cTinh_Click(object sender, EventArgs e)
         {
             cKetqua.Clear();
+            int count = 0;
             string[] arr = cMang.Text.Split(',');
-            if (arr.Length < 13 || arr.Length > 13|| !System.Text.RegularExpressions.Regex.IsMatch(arr[0].Trim(), @"^[\p{L}\s]+$"))
+            for(int i=0; i<arr.Length; i++)
+            {
+                if (arr[i].Trim() != "")
+                {
+                    count++;
+                }
+            }
+            if (arr.Length < 13 && count<13 || arr.Length > 13 && count< 13 || !System.Text.RegularExpressions.Regex.IsMatch(arr[0].Trim(), @"^[\p{L}\s]+$"))
             {
                 MessageBox.Show("Bạn đã nhập sai format, vui lòng kiểm tra lại!");
                 return;

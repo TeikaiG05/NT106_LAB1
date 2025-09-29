@@ -80,6 +80,7 @@
             // 
             // cKetqua
             // 
+            this.cKetqua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cKetqua.Location = new System.Drawing.Point(88, 150);
             this.cKetqua.Multiline = true;
             this.cKetqua.Name = "cKetqua";
@@ -92,7 +93,7 @@
             // 
             this.Kq.AutoSize = true;
             this.Kq.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Kq.Location = new System.Drawing.Point(354, 151);
+            this.Kq.Location = new System.Drawing.Point(354, 150);
             this.Kq.Name = "Kq";
             this.Kq.Size = new System.Drawing.Size(59, 16);
             this.Kq.TabIndex = 5;

@@ -39,6 +39,10 @@ namespace LAB1
                 return;
             }
             int maxDay = int.Parse(ngaytrongthang[month]);
+            if( month == 2 && DateTime.IsLeapYear(DateTime.Now.Year))
+            {
+                maxDay = 29;
+            }
             if (day < 1 || day > maxDay)
             {
                 MessageBox.Show($"Ngày sinh không phù hợp với tháng sinh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
