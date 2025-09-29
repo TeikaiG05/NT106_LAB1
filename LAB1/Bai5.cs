@@ -88,5 +88,10 @@ namespace LAB1
         {
             this.Close();
         }
+
+        private void cKetqua_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

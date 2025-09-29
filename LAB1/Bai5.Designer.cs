@@ -126,6 +126,7 @@
             this.cKetqua.ReadOnly = true;
             this.cKetqua.Size = new System.Drawing.Size(385, 160);
             this.cKetqua.TabIndex = 8;
+            this.cKetqua.TextChanged += new System.EventHandler(this.cKetqua_TextChanged);
             // 
             // label3
             // 
