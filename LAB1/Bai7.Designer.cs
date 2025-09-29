@@ -83,6 +83,7 @@
             this.cKetqua.Location = new System.Drawing.Point(88, 150);
             this.cKetqua.Multiline = true;
             this.cKetqua.Name = "cKetqua";
+            this.cKetqua.ReadOnly = true;
             this.cKetqua.Size = new System.Drawing.Size(325, 272);
             this.cKetqua.TabIndex = 4;
             this.cKetqua.TextChanged += new System.EventHandler(this.cKetqua_TextChanged);

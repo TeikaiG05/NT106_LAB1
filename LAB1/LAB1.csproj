@@ -94,6 +94,12 @@
     <Compile Include="Bai7.Designer.cs">
       <DependentUpon>Bai7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bai8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bai8.Designer.cs">
+      <DependentUpon>Bai8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bai7.resx">
       <DependentUpon>Bai7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bai8.resx">
+      <DependentUpon>Bai8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

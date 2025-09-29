@@ -90,5 +90,13 @@ namespace LAB1
             bai7.ShowDialog();
             this.Show();
         }
+
+        private void bai8_Click(object sender, EventArgs e)
+        {
+            Bai8 bai8 = new Bai8();
+            this.Hide();
+            bai8.ShowDialog();
+            this.Show();
+        }
     }
 }
