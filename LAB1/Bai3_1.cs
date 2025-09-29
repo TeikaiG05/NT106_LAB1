@@ -17,6 +17,7 @@ namespace LAB1
             InitializeComponent();
         }
         private static string[] donvi = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+        string[] hang = { "", " nghìn", " triệu", " tỷ" };
         private static string Doc3So(long n)
         {
             long tram = n / 100;
@@ -28,7 +29,6 @@ namespace LAB1
                 kq += donvi[tram] + " trăm";
                 if (chuc == 0 && dv > 0) kq += " lẻ";
             }
-            if(tram==0) kq += "không trăm";
 
             if (chuc > 1)
             {
@@ -64,13 +64,12 @@ namespace LAB1
                 return;
             }
 
-            a = long.Parse(Cso1.Text.Trim());
             if(a==0)
             {
                 Cketqua.Text = "Không"; 
                 return;
             }
-            string[] hang = { "", " nghìn", " triệu", " tỷ" };
+            
 
             string kq = "";
             int i = 0;
@@ -80,6 +79,10 @@ namespace LAB1
                 if (n != 0)
                 {
                     string s = Doc3So(n);
+                    if (i == 0 && n < 100 && n > 0)
+                    {
+                        s = "không trăm " + s;
+                    }
                     if (i > 0) s += hang[i];
                     if (kq == "")
                         kq = s;
@@ -113,6 +116,11 @@ namespace LAB1
         }
 
         private void Bai3_1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cso1_TextChanged(object sender, EventArgs e)
         {
 
         }

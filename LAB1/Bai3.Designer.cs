@@ -39,17 +39,20 @@
             // 
             // Cketqua
             // 
-            this.Cketqua.Location = new System.Drawing.Point(142, 159);
+            this.Cketqua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Cketqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Cketqua.Location = new System.Drawing.Point(142, 136);
             this.Cketqua.Name = "Cketqua";
             this.Cketqua.ReadOnly = true;
-            this.Cketqua.Size = new System.Drawing.Size(100, 20);
+            this.Cketqua.Size = new System.Drawing.Size(100, 22);
             this.Cketqua.TabIndex = 13;
+            this.Cketqua.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(41, 163);
+            this.label2.Location = new System.Drawing.Point(41, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 12;
@@ -58,7 +61,7 @@
             // Cthoat
             // 
             this.Cthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Cthoat.Location = new System.Drawing.Point(435, 138);
+            this.Cthoat.Location = new System.Drawing.Point(435, 115);
             this.Cthoat.Name = "Cthoat";
             this.Cthoat.Size = new System.Drawing.Size(75, 23);
             this.Cthoat.TabIndex = 11;
@@ -69,7 +72,7 @@
             // Cxoa
             // 
             this.Cxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Cxoa.Location = new System.Drawing.Point(435, 95);
+            this.Cxoa.Location = new System.Drawing.Point(435, 72);
             this.Cxoa.Name = "Cxoa";
             this.Cxoa.Size = new System.Drawing.Size(75, 23);
             this.Cxoa.TabIndex = 10;
@@ -80,7 +83,7 @@
             // Cdoc
             // 
             this.Cdoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Cdoc.Location = new System.Drawing.Point(435, 56);
+            this.Cdoc.Location = new System.Drawing.Point(435, 33);
             this.Cdoc.Name = "Cdoc";
             this.Cdoc.Size = new System.Drawing.Size(75, 23);
             this.Cdoc.TabIndex = 9;
@@ -90,7 +93,7 @@
             // 
             // Cso1
             // 
-            this.Cso1.Location = new System.Drawing.Point(274, 58);
+            this.Cso1.Location = new System.Drawing.Point(274, 35);
             this.Cso1.Name = "Cso1";
             this.Cso1.Size = new System.Drawing.Size(100, 20);
             this.Cso1.TabIndex = 8;
@@ -99,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(41, 62);
+            this.label1.Location = new System.Drawing.Point(41, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 16);
             this.label1.TabIndex = 7;
@@ -109,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 249);
+            this.ClientSize = new System.Drawing.Size(549, 196);
             this.Controls.Add(this.Cketqua);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Cthoat);

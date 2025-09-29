@@ -96,6 +96,7 @@
             this.Cso1.Name = "Cso1";
             this.Cso1.Size = new System.Drawing.Size(171, 20);
             this.Cso1.TabIndex = 15;
+            this.Cso1.TextChanged += new System.EventHandler(this.Cso1_TextChanged);
             // 
             // label1
             // 

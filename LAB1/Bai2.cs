@@ -30,9 +30,9 @@ namespace LAB1
                 MessageBox.Show("Vui lòng nhập số hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            num1 = Int32.Parse(number1.Text);
-            num2 = Int32.Parse(number2.Text);
-            num3 = Int32.Parse(number3.Text);
+            num1 = double.Parse(number1.Text);
+            num2 = double.Parse(number2.Text);
+            num3 = double.Parse(number3.Text);
             double max = Math.Max(num1, Math.Max(num2, num3));
             double min = Math.Min(num1, Math.Min(num2, num3));
             Cmax.Text = max.ToString();
